@@ -1,0 +1,5 @@
+# Ignora todas as pastasde de dependências do Node.js
+node_modules/
+
+# Ignora o arquivo de segredos (chaves de API, etc.)
+.env

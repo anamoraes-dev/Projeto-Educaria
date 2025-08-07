@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educar.IA - Crie avatares didáticos com IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" id="logo-link"><h1 class="logo">Educar.IA</h1></a>
+            
+            <button class="menu-hamburguer" id="menu-hamburguer-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu-navegacao" id="menu-navegacao">
+                <nav>
+                    <a href="#creation-process">Criar</a>
+                    <a href="#como-funciona">Como funciona</a>
+                    <a href="#modelos">Modelos</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="creation-process">
+            <div class="container">
+                <div id="etapa-topico">
+                    <h2>Dê vida a tutores virtuais e transforme a forma de educar.</h2>
+                    <p>Comece inserindo o assunto que seu avatar deve explicar.</p>
+                    <div class="input-group">
+                        <input type="text" id="topic-input" placeholder="Ex: O que é a Teoria da Relatividade?">
+                        <button id="next-step-btn" class="cta-button">Avançar</button>
+                    </div>
+                </div>
+
+                <div id="etapa-resultado" class="hidden">
+                    </div>
+            </div>
+        </section>
+        
+        <section id="como-funciona">
+            <div class="container">
+                <h2>Simples, rápido e didático</h2>
+                <div class="steps">
+                    <div class="step">
+                        <h3>1. Insira o tópico</h3>
+                        <p>Escreva qualquer assunto, pergunta ou conceito que você deseja explicar.</p>
+                    </div>
+                    <div class="step">
+                        <h3>2. Nossa IA cria</h3>
+                        <p>Nossa tecnologia gera um roteiro e um avatar para apresentar o conteúdo de forma clara.</p>
+                    </div>
+                    <div class="step">
+                        <h3>3. Use onde quiser</h3>
+                        <p>Receba seu vídeo com o avatar e use em aulas, apresentações ou redes sociais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modelos">
+            <div class="container">
+                <h2>Diversos modelos de avatares disponíveis</h2>
+                <h2 id="title-step-2" class="hidden">Ótimo! Agora, selecione seu estilo abaixo:</h2>
+                <p>Escolha o estilo que mais combina com a sua mensagem.</p>
+                <div class="avatar-gallery">
+                    <div class="avatar-card" data-style="Humano">
+                        <img src="https://pt.vidnoz.com/img/ai-talking-avatar/tips-default.png" alt="Estilo Humano">
+                        <h4>Estilo humano</h4>
+                        <p class="avatar-description">Apresentadores realistas para uma conexão direta e profissional.</p>
+                    </div>
+                    <div class="avatar-card" data-style="Animação">
+                        <img src="https://img.freepik.com/fotos-premium/ator-avatar-digital-inteligencia-artificial-gerativa_934475-9309.jpg" alt="Estilo Animação">
+                        <h4>Estilo animação</h4>
+                        <p class="avatar-description">Personagens 2D e 3D para uma abordagem mais lúdica e criativa.</p>
+                    </div>
+                    <div class="avatar-card" data-style="Personagem Fictício">
+                        <img src="https://storage.hyperspace.ai/template-logos/twKvseslZJwQCDBtg3Ch9iUqpIchAiRgbn.webp" alt="Personagem Fictício">
+                        <h4>Personagem fictício</h4>
+                        <p class="avatar-description">Crie personagens que cativam e contam histórias únicas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Educar.IA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
