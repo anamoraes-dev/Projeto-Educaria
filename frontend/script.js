@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             creationSection.scrollIntoView({ behavior: 'smooth' });
 
             try {
-                const response = await fetch('https://educaria-backend.onrender.com', {
+                const response = await fetch('https://educaria-backend.onrender.com/gerar-roteiro', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ topic: chosenTopic, style: chosenStyle })
