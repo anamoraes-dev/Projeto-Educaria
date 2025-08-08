@@ -27,9 +27,18 @@ app.post('/gerar-roteiro', async (req, res) => {
     const { topic, style } = req.body;
     console.log(`Pedido recebido para gerar ROTEIRO e ÁUDIO sobre: ${topic}`);
 
+    let adjetivoAvatar;
+    if (style === 'Animação') {
+        adjetivoAvatar = 'animado';
+    } else if (style === 'Humano') {
+        adjetivoAvatar = 'humano';
+    } else {
+        adjetivoAvatar = 'personagem fictício';
+    }
+
     try {
         // ETAPA 1: Gerar o roteiro
-        const prompt = `Crie um roteiro curto e didático para um vídeo de 1 minuto sobre o tópico "${topic}". O avatar que apresenta está no estilo "${style}". O roteiro DEVE OBRIGATORIAMENTE começar com a frase: "Olá, eu sou um avatar ${style.toLowerCase()} da Educar.IA e ". Continue a frase de forma natural para introduzir o tópico. Fale sempre em primeira pessoa, como se fosse o avatar. Use uma linguagem simples e direta.`;
+        const prompt = `Crie um roteiro curto e didático para um vídeo de 1 minuto sobre o tópico "${topic}". O roteiro DEVE OBRIGATORIAMENTE começar com a frase: "Olá, eu sou um avatar ${adjetivoAvatar} da Educar.IA e ". Continue a frase de forma natural para introduzir o tópico. Fale sempre em primeira pessoa, como se fosse o avatar. Use uma linguagem simples e direta.`;
         
         const completion = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
@@ -53,8 +62,11 @@ app.post('/gerar-roteiro', async (req, res) => {
         await fs.promises.writeFile(audioFilePath, audioBuffer);
         console.log(`Áudio salvo com sucesso em: ${audioFilePath}`);
         
-        // CORREÇÃO AQUI: Gera uma URL relativa em vez de localhost
-        const audioUrl = `/${audioFileName}`;
+        // --- CORREÇÃO FINAL: Gera uma URL absoluta e dinâmica ---
+        const baseUrl = `${req.protocol}://${req.get('host')}`;
+        const audioUrl = `${baseUrl}/${audioFileName}`;
+        console.log('Enviando URL do áudio para o frontend:', audioUrl);
+        // ----------------------------------------------------
 
         // ETAPA 3: Enviar o roteiro E a URL do áudio de volta para o frontend
         res.json({
